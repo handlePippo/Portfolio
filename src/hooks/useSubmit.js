@@ -21,13 +21,12 @@ const useSubmit = () => {
           setResponse({
             type: "success",
             message: `Grazie per la tua richiesta ${data.firstName}, verrai ri-contattato quanto prima!`,
-          }),
-          (error) => {
+          }).catch((error) => {
             setResponse({
               type: "error",
               message: error.message,
             });
-          }
+          })
         );
     } catch (error) {
       setResponse({
