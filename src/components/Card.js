@@ -45,15 +45,19 @@ const Card = ({ title, description, imageSrc, isDisabled }) => {
 
           <Text py='2'>{description}</Text>
 
-          <a href='https://github.com/handlePippo?tab=repositories'>
+          <a
+            href='https://github.com/handlePippo?tab=repositories'
+            target='_blank'
+          >
             <Button
+              className='button-4'
               variant='solid'
               colorScheme='transparent'
               justifyContent={"left"}
               textAlign={"left"}
               isDisabled={isDisabled}
             >
-              Repository GitHub
+              <Text py='2'>Repository</Text>
               <FontAwesomeIcon
                 icon={faArrowRight}
                 size='1x'

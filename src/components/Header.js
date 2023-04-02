@@ -56,8 +56,12 @@ const Header = () => {
             <HStack spacing={3}>
               {socials.map((el) => {
                 return (
-                  <a href={el.url}>
-                    <FontAwesomeIcon icon={el.icon} size='2x' />
+                  <a href={el.url} target='_blank'>
+                    <FontAwesomeIcon
+                      icon={el.icon}
+                      size='2x'
+                      className='ruota'
+                    />
                   </a>
                 );
               })}
@@ -77,13 +81,19 @@ const Header = () => {
               marginLeft={{ md: "50vw", xl: "50vw" }}
             >
               <a href='/#homepage' onClick={handleClick("homepage")}>
-                <Text fontSize='sm'>Homepage</Text>
+                <Text fontSize='sm' className='anchor'>
+                  Homepage
+                </Text>
               </a>
               <a href='/#projects' onClick={handleClick("projects")}>
-                <Text fontSize='sm'>Progetti</Text>
+                <Text fontSize='sm' className='anchor'>
+                  Progetti
+                </Text>
               </a>
               <a href='/#contact-me' onClick={handleClick("contactme")}>
-                <Text fontSize='sm'>Contattami</Text>
+                <Text fontSize='sm' className='anchor'>
+                  Contattami
+                </Text>
               </a>
             </HStack>
           </nav>

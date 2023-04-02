@@ -27,9 +27,14 @@ const LandingSection = () => {
       comment: "",
     },
     onSubmit: (values) => {
-      submit("https://formspree.io/f/mvonwboz", values)
+      submit("https://formspree.io/f/xjvdapbq", values)
         .then(() => {
-          onOpen("success", response.message);
+          onOpen(
+            "success",
+            response.message === ""
+              ? response.message
+              : `Grazie per la tua richiesta ${values.firstName}, verrai ri-contattato quanto prima!`
+          );
         })
         .catch((error) => {
           onOpen("error", error.message);
@@ -62,13 +67,9 @@ const LandingSection = () => {
         alignItems={["center", "flex-start"]}
         justifyContent='center'
         textAlign={["center", "left"]}
+        id='contactme-section'
       >
-        <Heading
-          as='h1'
-          id='contactme-section'
-          fontSize={["3xl", "4xl"]}
-          marginBottom='20px'
-        >
+        <Heading as='h1' fontSize={["3xl", "4xl"]} marginBottom='20px'>
           Contattami
         </Heading>
         <Box rounded='md' w='100%'>
@@ -119,6 +120,7 @@ const LandingSection = () => {
               </FormControl>
 
               <Button
+                className='anchor'
                 mt={[4, 8]}
                 colorScheme='purple'
                 isLoading={isLoading}

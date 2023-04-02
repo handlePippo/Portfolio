@@ -13,7 +13,8 @@ const projects = [
   },
   {
     title: "Prossimamente..",
-    description: "Sezione in costruzione",
+    description:
+      "Sezione in costruzione, di tanto in tanto verranno aggiunti nuovi progetti, sia quì che su GitHub.",
     display: true,
     getImageSrc: () => require("../images/Work-In-Progress.png"),
   },
@@ -27,8 +28,9 @@ const ProjectsSection = () => {
       p={8}
       alignItems='flex-start'
       spacing={8}
+      id='projects-section'
     >
-      <Heading as='h1' id='projects-section'>
+      <Heading as='h1' mt='10'>
         Progetti
       </Heading>
       <SimpleGrid columns={{ base: 1, md: 2 }} spacing={8} mt={8}>
