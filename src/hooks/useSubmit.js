@@ -7,18 +7,18 @@ const useSubmit = () => {
   const [isLoading, setLoading] = useState(false);
   const [response, setResponse] = useState({});
 
+  const onSet = (args) => {
+    setResponse(args);
+  };
+
   const submit = async (url, data) => {
     setLoading(true);
     try {
       await wait(2000);
-      await axios.post(url, {
-        firstName: data.firstName,
-        email: data.email,
-        comment: data.comment,
-      });
+      await axios.post(url, data);
       setResponse({
         type: "success",
-        message: `Grazie per la tua richiesta ${data.firstName}, verrai ri-contattato quanto prima!`,
+        message: `Grazie per la tua richiesta, verrai ri-contattato quanto prima!`,
       });
     } catch (error) {
       setResponse({
@@ -30,7 +30,7 @@ const useSubmit = () => {
     }
   };
 
-  return { isLoading, response, submit };
+  return { isLoading, response, submit, onSet };
 };
 
 export default useSubmit;

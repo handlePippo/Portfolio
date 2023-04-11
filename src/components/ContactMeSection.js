@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useFormik } from "formik";
 import {
   Box,
@@ -17,8 +17,9 @@ import useSubmit from "../hooks/useSubmit";
 import { useAlertContext } from "../context/alertContext";
 
 const LandingSection = () => {
-  const { isLoading, response, submit } = useSubmit();
+  const { isLoading, response, submit, onSet } = useSubmit();
   const { onOpen } = useAlertContext();
+  const [endSubmit, setEndSubmit] = useState(false);
 
   const formik = useFormik({
     initialValues: {
@@ -29,12 +30,7 @@ const LandingSection = () => {
     onSubmit: (values) => {
       submit("https://formspree.io/f/xjvdapbq", values)
         .then(() => {
-          onOpen(
-            "success",
-            response.message === ""
-              ? response.message
-              : `Grazie per la tua richiesta ${values.firstName}, verrai ri-contattato quanto prima!`
-          );
+          setEndSubmit(true);
         })
         .catch((error) => {
           onOpen("error", error.message);
@@ -53,6 +49,16 @@ const LandingSection = () => {
         .required("Obbligatorio"),
     }),
   });
+
+  useEffect(() => {
+    if (endSubmit) {
+      onOpen("success", response.message);
+    }
+    setEndSubmit(false);
+    return () => onSet({});
+  }, [endSubmit]);
+
+  // console.log(response);
 
   return (
     <FullScreenSection
