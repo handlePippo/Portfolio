@@ -46,7 +46,11 @@ const Card = ({ title, description, imageSrc, isDisabled }) => {
           <Text py='2'>{description}</Text>
 
           <a
-            href='https://github.com/handlePippo?tab=repositories'
+            href={
+              !isDisabled
+                ? "https://github.com/handlePippo?tab=repositories"
+                : null
+            }
             target='_blank'
           >
             <Button
