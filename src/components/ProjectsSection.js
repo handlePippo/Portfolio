@@ -7,7 +7,7 @@ const projects = [
   {
     title: "Skigames",
     description:
-      "Prototipo di e-Commerce di videogiochi, realizzato come progetto finale del Bootcamp con Aulab",
+      "Prototipo di e-Commerce di videogiochi realizzato in Javascript Vanilla, realizzato come progetto finale del Bootcamp con Aulab",
     display: false,
     getImageSrc: () => require("../images/skig.png"),
   },
