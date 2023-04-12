@@ -53,12 +53,10 @@ const LandingSection = () => {
   useEffect(() => {
     if (endSubmit) {
       onOpen("success", response.message);
+      setEndSubmit(false);
     }
-    setEndSubmit(false);
-    return () => onSet({});
+    onSet({});
   }, [endSubmit]);
-
-  // console.log(response);
 
   return (
     <FullScreenSection
