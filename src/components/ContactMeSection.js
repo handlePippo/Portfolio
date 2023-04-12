@@ -28,7 +28,7 @@ const LandingSection = () => {
       comment: "",
     },
     onSubmit: (values) => {
-      submit("https://formspree.io/f/xjvdapbq", values)
+      submit("https://formspree.io/f/mgebpnew", values)
         .then(() => {
           setEndSubmit(true);
         })
